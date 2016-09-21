@@ -28,7 +28,7 @@ public class _2_AddTwoNumbers {
 		// showListNode(l1);
 		// showListNode(l2);
 
-		// showListNode(addTwoNumbers(l1, l2));
+		ListNode.showListNode(addTwoNumbers(l1, l2));
 
 	}
 
@@ -116,7 +116,7 @@ public class _2_AddTwoNumbers {
 	//
 	// }
 
-	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode dummyHead = new ListNode(0);
 		ListNode p = l1, q = l2, curr = dummyHead;
 		int carry = 0;
@@ -138,21 +138,4 @@ public class _2_AddTwoNumbers {
 		return dummyHead.next;
 	}
 
-	public static void showListNode(ListNode l1) {
-		while (l1 != null) {
-			System.out.println(l1.val);
-			l1 = l1.next;
-
-		}
-
-	}
-}
-
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode(int x) {
-		val = x;
-	}
 }
