@@ -22,7 +22,9 @@ public class Main {
 		// _70_ClimbingStairs.test();
 		// _83_RemoveDuplicatesfromSortedList.test();
 		// _88_MergeSortedArray.test();
-		// _100_SameTree.test();
+		// _118_PascalTriangle.test();
+		// _119_PascalTriangleII.test();
+		// _125_ValidPalindrome.test();
 	}
 
 	public static void showArray(int[] num) {

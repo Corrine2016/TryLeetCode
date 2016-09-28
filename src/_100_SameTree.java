@@ -2,9 +2,6 @@
 //
 //Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
 public class _100_SameTree {
-	public static void test() {
-
-	}
 
 	public static boolean isSameTree(TreeNode p, TreeNode q) {
 		if (p == null && q == null)
