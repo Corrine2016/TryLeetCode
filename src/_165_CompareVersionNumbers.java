@@ -9,6 +9,39 @@ Here is an example of version numbers ordering:
 
 0.1 < 1.1 < 1.2 < 13.37*/
 public class _165_CompareVersionNumbers {
-	public sta
+	public static void main(String[] args) {
+		String version1 = "1.0";
+		String version2 = "1";
+		System.out.println(compareVersion(version1, version2));
+	}
 
+	public static int compareVersion(String version1, String version2) {
+
+		version1 = version1 + ".0";
+		version2 = version2 + ".0";
+		String[] split1 = version1.split("\\.");
+		String[] split2 = version2.split("\\.");
+		int i = 0;
+		return compareNum(0, split1, split2);
+	}
+
+	private static int compareNum(int i, String[] split1, String[] split2) {
+
+		if (i < split1.length && i < split2.length) {
+			if (Integer.parseInt(split1[i]) > Integer.parseInt(split2[i]))
+				return 1;
+			else if ((Integer.parseInt(split1[i]) < Integer.parseInt(split2[i])))
+				return -1;
+			else
+				return compareNum(i + 1, split1, split2);
+		} else if (i == split1.length && i < split2.length
+				&& Integer.parseInt(split2[i]) != 0)
+			return -1;
+		else if (i == split2.length && i < split1.length
+				&& Integer.parseInt(split1[i]) != 0)
+			return 1;
+		else
+			return 0;
+
+	}
 }
