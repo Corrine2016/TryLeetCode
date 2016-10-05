@@ -5,15 +5,15 @@ import java.util.Stack;
 
 /*这个问题的解法比较简单，只要用一个stack就可以了,我们把s里面的字符一个一个过一遍。主要分为2种情况
 
-1 如果我们遇到([{里面的一个，我们就把这个字符放入stack里面。
-2 如果我们遇到)]}里面的一个，我们就把这个字符和stack最顶端的字符进行比较
-(a)如果遇到的字符和stack顶端字符相等，我们把stack顶端的字符去掉，然后继续比较字符串的下一个
-(b)如果遇到的字符和stack顶端的不相等，我们就返回false。
+ 1 如果我们遇到([{里面的一个，我们就把这个字符放入stack里面。
+ 2 如果我们遇到)]}里面的一个，我们就把这个字符和stack最顶端的字符进行比较
+ (a)如果遇到的字符和stack顶端字符相等，我们把stack顶端的字符去掉，然后继续比较字符串的下一个
+ (b)如果遇到的字符和stack顶端的不相等，我们就返回false。
 
-当我们把s里面的字符串都过了一遍以后，我们再看stack是不是空，如果空就返回true。不空就返回false。*/
+ 当我们把s里面的字符串都过了一遍以后，我们再看stack是不是空，如果空就返回true。不空就返回false。*/
 
 public class _20_ValidParentheses {
-	public static void test() {
+	public static void main(String[] args) {
 		String string = "([])";
 		System.out.println(isValid(string));
 

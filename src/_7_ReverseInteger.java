@@ -4,7 +4,7 @@ Example1: x = 123, return 321
 Example2: x = -123, return -321*/
 
 public class _7_ReverseInteger {
-	public static void test() {
+	public static void main(String[] args) {
 		int x = -21;
 		System.out.println(reverse(x));
 

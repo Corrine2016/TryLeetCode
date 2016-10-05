@@ -4,7 +4,7 @@
 //Given 1->1->2, return 1->2.
 //Given 1->1->2->3->3, return 1->2->3.
 public class _83_RemoveDuplicatesfromSortedList {
-	public static void test() {
+	public static void main(String[] args) {
 		ListNode testList = new ListNode(1);
 		testList.next = new ListNode(1);
 		testList.next.next = new ListNode(2);

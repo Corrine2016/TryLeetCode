@@ -9,7 +9,7 @@ And the numbers 1-9 must occur just once in each of the 9 sub-boxes of the grid.
 
 A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.*/
 public class _36_ValidSudoku {
-	public static void test() {
+	public static void main(String[] args) {
 		char[][] board = {};
 		System.out.println(isValidSudoku(board));
 	}

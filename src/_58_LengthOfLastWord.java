@@ -9,7 +9,7 @@ For example,
 Given s = "Hello World",
 return 5.*/
 public class _58_LengthOfLastWord {
-	public static void test() {
+	public static void main(String[] args) {
 		String s = "H";
 		System.out.println(lengthOfLastWord(s));
 

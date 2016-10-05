@@ -10,10 +10,9 @@ return [0, 1].*/
 import java.util.HashMap;
 
 public class _1_TwoSum {
-	public static void test() {
+	public static void main(String[] args) {
 		int[] nums = { 2, 5, 7, 9 };
 		int target = 7;
-		Main.showArray(twoSum(nums, target));
 
 	}
 

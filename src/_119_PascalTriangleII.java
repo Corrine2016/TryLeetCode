@@ -9,7 +9,7 @@ import java.util.List;
 //Note:
 //Could you optimize your algorithm to use only O(k) extra space?
 public class _119_PascalTriangleII {
-	public static void test() {
+	public static void main(String[] args) {
 
 		List<Integer> list = getRow(4);
 		System.out.println(list);

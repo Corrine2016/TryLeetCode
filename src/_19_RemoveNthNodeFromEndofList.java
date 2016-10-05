@@ -12,7 +12,7 @@ Try to do this in one pass.*/
 //思路：始终保持runner和secondRunner之间相差N
 
 public class _19_RemoveNthNodeFromEndofList {
-	public static void test() {
+	public static void main(String[] args) {
 		ListNode testList = new ListNode(1);
 		testList.next = new ListNode(2);
 		testList.next.next = new ListNode(3);

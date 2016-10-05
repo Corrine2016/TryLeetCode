@@ -3,7 +3,7 @@
 //
 //然后以第0个字符串作为参照，从第1个字符串到最后一个字符串，对同一位置做判断，有不同字符串返回当前记录的字符串就行。
 public class _14_LongestCommonPrefix {
-	public static void test() {
+	public static void main(String[] args) {
 		String[] strs = { "Hello", "He", "H" };
 		System.out.println(longestCommonPrefix(strs));
 

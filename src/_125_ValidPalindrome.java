@@ -11,7 +11,7 @@
 
 //总结超时原因，不要写太多的判断，会超时
 public class _125_ValidPalindrome {
-	public static void test() {
+	public static void main(String[] args) {
 		System.out.println(isPalindrome("aA"));
 	}
 

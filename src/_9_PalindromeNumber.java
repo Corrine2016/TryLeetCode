@@ -1,7 +1,6 @@
-
 //Determine whether an integer is a palindrome. Do this without extra space.
 public class _9_PalindromeNumber {
-	public static void test() {
+	public static void main(String[] args) {
 		int num = 23;
 		System.out.println(isPalindrome(num));
 

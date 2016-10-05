@@ -14,7 +14,7 @@ import java.util.List;
 // [1,4,6,4,1]
 //]
 public class _118_PascalTriangle {
-	public static void test() {
+	public static void main(String[] args) {
 		int numRows = 5;
 		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		result = generate(numRows);
@@ -43,7 +43,8 @@ public class _118_PascalTriangle {
 			list.add(1);
 			for (int i = 1; i < num; i++) {
 
-				list.add(result.get(num - 1).get(i - 1) + result.get(num - 1).get(i));
+				list.add(result.get(num - 1).get(i - 1)
+						+ result.get(num - 1).get(i));
 
 			}
 			list.add(1);

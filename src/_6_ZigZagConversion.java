@@ -20,7 +20,7 @@ convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".*/
  */
 
 public class _6_ZigZagConversion {
-	public static void test() {
+	public static void main(String[] args) {
 		String s = "PAYPALISHIRING";
 		int num = 3;
 		String result = zigZagConversion(s, num);
