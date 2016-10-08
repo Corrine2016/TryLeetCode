@@ -10,7 +10,7 @@ public class ListNode {
 
 	public static void showListNode(ListNode l1) {
 		while (l1 != null) {
-			System.out.println(l1.val);
+			System.out.print(l1.val + " ");
 			l1 = l1.next;
 
 		}
