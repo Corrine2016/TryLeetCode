@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 
 //Given a roman numeral, convert it to an integer.
@@ -20,6 +21,7 @@ import java.util.HashMap;
  //
  //　　(5)在一个数的上面画一条横线，表示这个数扩大1000倍。　　
  */
+
 public class _13_RomantoInteger {
 	public static void main(String[] args) {
 		String string = "MMMMCMXCIX";
@@ -46,8 +48,7 @@ public class _13_RomantoInteger {
 				result = result + numMap.get(charArray[i]);
 			}
 			if (numMap.get(charArray[i]) > numMap.get(charArray[i - 1])) {
-				result = result + numMap.get(charArray[i]) - 2
-						* numMap.get(charArray[i - 1]);
+				result = result + numMap.get(charArray[i]) - 2 * numMap.get(charArray[i - 1]);
 			}
 
 		}
