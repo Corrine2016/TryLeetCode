@@ -11,8 +11,17 @@
 
 //总结超时原因，不要写太多的判断，会超时
 public class _125_ValidPalindrome {
-	public static void main(String[] args) {
-		System.out.println(isPalindrome("aA"));
+	public static boolean isPalindrome(String s) {
+		s = s.replaceAll("[^a-zA-Z0-9]", "");
+		s = s.toLowerCase();
+		int j = s.length() - 1;
+		int i = 0;
+		while (i < j) {
+			if (s.charAt(i++) != s.charAt(j--)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	// time limited exceeded
@@ -91,17 +100,8 @@ public class _125_ValidPalindrome {
 	// return true;
 	// }
 
-	public static boolean isPalindrome(String s) {
-		s = s.replaceAll("[^a-zA-Z0-9]", "");
-		s = s.toLowerCase();
-		int j = s.length() - 1;
-		int i = 0;
-		while (i < j) {
-			if (s.charAt(i++) != s.charAt(j--)) {
-				return false;
-			}
-		}
-		return true;
+	public static void main(String[] args) {
+		System.out.println(isPalindrome("aA"));
 	}
 
 }

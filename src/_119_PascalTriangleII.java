@@ -9,10 +9,20 @@ import java.util.List;
 //Note:
 //Could you optimize your algorithm to use only O(k) extra space?
 public class _119_PascalTriangleII {
-	public static void main(String[] args) {
-
-		List<Integer> list = getRow(4);
-		System.out.println(list);
+	public static List<Integer> getRow(int rowIndex) {
+		int k = rowIndex + 1;
+		int[] con = new int[k];
+		con[0] = 1;
+		for (int i = 1; i < k; i++) {
+			con[i] = 1;
+			for (int j = i - 1; j > 0; j--) {
+				con[j] = con[j - 1] + con[j];
+			}
+		}
+		List<Integer> list = new ArrayList<>();
+		for (int kk : con)
+			list.add(kk);
+		return list;
 
 	}
 
@@ -33,20 +43,10 @@ public class _119_PascalTriangleII {
 	// return list;
 	// }
 
-	public static List<Integer> getRow(int rowIndex) {
-		int k = rowIndex + 1;
-		int[] con = new int[k];
-		con[0] = 1;
-		for (int i = 1; i < k; i++) {
-			con[i] = 1;
-			for (int j = i - 1; j > 0; j--) {
-				con[j] = con[j - 1] + con[j];
-			}
-		}
-		List<Integer> list = new ArrayList<>();
-		for (int kk : con)
-			list.add(kk);
-		return list;
+	public static void main(String[] args) {
+
+		List<Integer> list = getRow(4);
+		System.out.println(list);
 
 	}
 }

@@ -12,11 +12,6 @@ import java.util.ArrayList;
 //62 + 82 = 100
 //12 + 02 + 02 = 1
 public class _202_HappyNumber {
-	public static void main(String[] args) {
-		System.out.println(isHappy(2));
-
-	}
-
 	static ArrayList<Integer> arrayList = new ArrayList<Integer>();
 
 	public static boolean isHappy(int n) {
@@ -38,6 +33,11 @@ public class _202_HappyNumber {
 			arrayList.add(count);
 			return isHappy(count);
 		}
+	}
+
+	public static void main(String[] args) {
+		System.out.println(isHappy(2));
+
 	}
 
 }

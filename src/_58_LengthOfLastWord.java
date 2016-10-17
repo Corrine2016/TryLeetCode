@@ -9,12 +9,6 @@ For example,
 Given s = "Hello World",
 return 5.*/
 public class _58_LengthOfLastWord {
-	public static void main(String[] args) {
-		String s = "H";
-		System.out.println(lengthOfLastWord(s));
-
-	}
-
 	public static int lengthOfLastWord(String s) {
 		String[] split = s.split(" ");
 
@@ -22,6 +16,12 @@ public class _58_LengthOfLastWord {
 			return 0;
 		else
 			return split[split.length - 1].toCharArray().length;
+
+	}
+
+	public static void main(String[] args) {
+		String s = "H";
+		System.out.println(lengthOfLastWord(s));
 
 	}
 

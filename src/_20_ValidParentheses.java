@@ -13,12 +13,6 @@ import java.util.Stack;
  当我们把s里面的字符串都过了一遍以后，我们再看stack是不是空，如果空就返回true。不空就返回false。*/
 
 public class _20_ValidParentheses {
-	public static void main(String[] args) {
-		String string = "([])";
-		System.out.println(isValid(string));
-
-	}
-
 	public static boolean isValid(String s) {
 
 		Stack<Character> stack = new Stack<>();
@@ -47,6 +41,12 @@ public class _20_ValidParentheses {
 			}
 		}
 		return stack.isEmpty() == true;
+
+	}
+
+	public static void main(String[] args) {
+		String string = "([])";
+		System.out.println(isValid(string));
 
 	}
 

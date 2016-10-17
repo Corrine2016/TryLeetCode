@@ -10,12 +10,6 @@ s = "rat", t = "car", return false.
 Note:
 You may assume the string contains only lowercase alphabets.*/
 public class _242_ValidAnagram {
-	public static void main(String[] args) {
-		String s = "a";
-		String t = "ab";
-		System.out.println(isAnagram(s, t));
-	}
-
 	public static boolean isAnagram(String s, String t) {
 		HashMap<Character, Integer> map1 = toMap(s);
 		HashMap<Character, Integer> map2 = toMap(t);
@@ -34,6 +28,12 @@ public class _242_ValidAnagram {
 				return false;
 		}
 		return true;
+	}
+
+	public static void main(String[] args) {
+		String s = "a";
+		String t = "ab";
+		System.out.println(isAnagram(s, t));
 	}
 
 	private static HashMap<Character, Integer> toMap(String s) {

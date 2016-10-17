@@ -5,12 +5,6 @@
 //b = "11"
 //Return "1000".
 public class _67_AddBinary {
-	public static void main(String[] args) {
-		String a = "1";
-		String b = "111";
-		System.out.println(addBinary(a, b));
-	}
-
 	public static String addBinary(String a, String b) {
 		char[] aCharArray = a.toCharArray();
 		char[] bCharArray = b.toCharArray();
@@ -40,6 +34,12 @@ public class _67_AddBinary {
 		}
 
 		return c;
+	}
+
+	public static void main(String[] args) {
+		String a = "1";
+		String b = "111";
+		System.out.println(addBinary(a, b));
 	}
 
 }

@@ -5,11 +5,6 @@ import java.util.HashSet;
 //		and it should return false if every element is distinct.
 public class _217_ContainsDuplicate {
 
-	public static void main(String[] args) {
-		int[] nums = { 1, 1, 2, 3, 4, 5, 5 };
-		System.out.println(containsDuplicate(nums));
-	}
-
 	public static boolean containsDuplicate(int[] nums) {
 		HashSet<Integer> hashSet = new HashSet<>();
 		for (int i = 0; i < nums.length; i++) {
@@ -21,5 +16,10 @@ public class _217_ContainsDuplicate {
 			return true;
 		}
 
+	}
+
+	public static void main(String[] args) {
+		int[] nums = { 1, 1, 2, 3, 4, 5, 5 };
+		System.out.println(containsDuplicate(nums));
 	}
 }

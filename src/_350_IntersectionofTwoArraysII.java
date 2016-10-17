@@ -17,12 +17,15 @@ What if nums1's size is small compared to nums2's size? Which algorithm is bette
 What if elements of nums2 are stored on disk, and the memory is limited such that 
 you cannot load all elements into the memory at once?*/
 public class _350_IntersectionofTwoArraysII {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] nums1 = { 1 };
-		int[] nums2 = { 1, 1 };
-		System.out.println(Arrays.toString(intersect(nums1, nums2)));
-
+	private static HashMap<Integer, Integer> getMap(int[] nums) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		for (int i = 0; i < nums.length; i++) {
+			if (!map.containsKey(nums[i]))
+				map.put(nums[i], 1);
+			else
+				map.put(nums[i], map.get(nums[i]) + 1);
+		}
+		return map;
 	}
 
 	public static int[] intersect(int[] nums1, int[] nums2) {
@@ -57,14 +60,11 @@ public class _350_IntersectionofTwoArraysII {
 		return result;
 	}
 
-	private static HashMap<Integer, Integer> getMap(int[] nums) {
-		HashMap<Integer, Integer> map = new HashMap<>();
-		for (int i = 0; i < nums.length; i++) {
-			if (!map.containsKey(nums[i]))
-				map.put(nums[i], 1);
-			else
-				map.put(nums[i], map.get(nums[i]) + 1);
-		}
-		return map;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] nums1 = { 1 };
+		int[] nums2 = { 1, 1 };
+		System.out.println(Arrays.toString(intersect(nums1, nums2)));
+
 	}
 }

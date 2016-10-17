@@ -12,14 +12,6 @@ Each element in the result must be unique.
 The result can be in any order.*/
 public class _349_IntersectionofTwoArrays {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] nums1 = { 1 };
-		int[] nums2 = { 1, 1 };
-		System.out.println(Arrays.toString(intersection(nums1, nums2)));
-
-	}
-
 	public static int[] intersection(int[] nums1, int[] nums2) {
 		if (nums1.length == 0 || nums2.length == 0)
 			return new int[0];
@@ -42,5 +34,13 @@ public class _349_IntersectionofTwoArrays {
 
 		}
 		return result;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] nums1 = { 1 };
+		int[] nums2 = { 1, 1 };
+		System.out.println(Arrays.toString(intersection(nums1, nums2)));
+
 	}
 }

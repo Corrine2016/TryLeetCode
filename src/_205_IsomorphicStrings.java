@@ -20,14 +20,6 @@ import java.util.Map;
 //You may assume both s and t have the same length.
 public class _205_IsomorphicStrings {
 
-	public static void main(String[] args) {
-
-		String s = "egg";
-		String t = "add";
-		System.out.println(isIsomorphic(s, t));
-
-	}
-
 	public static boolean isIsomorphic(String s, String t) {
 		if (s.length() != t.length())
 			return false;
@@ -42,5 +34,13 @@ public class _205_IsomorphicStrings {
 				return false;
 		}
 		return true;
+	}
+
+	public static void main(String[] args) {
+
+		String s = "egg";
+		String t = "add";
+		System.out.println(isIsomorphic(s, t));
+
 	}
 }

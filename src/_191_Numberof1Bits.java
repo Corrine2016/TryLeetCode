@@ -2,10 +2,6 @@
 //
 //For example, the 32-bit integer ¡¯11' has binary representation 00000000000000000000000000001011, so the function should return 3.
 public class _191_Numberof1Bits {
-	public static void main(String[] args) {
-		System.out.println(hammingWeight(11));
-	}
-
 	public static int hammingWeight(int n) {
 		int result = 0;
 		String str = Integer.toBinaryString(n);
@@ -14,5 +10,9 @@ public class _191_Numberof1Bits {
 				result++;
 		}
 		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(hammingWeight(11));
 	}
 }

@@ -17,6 +17,49 @@ v and w as the lowest node in T that has both v and w as descendants (where we a
 For example, the lowest common ancestor (LCA) of nodes 2 and 8 is 6. Another example is LCA of 
 nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.*/
 public class _235_LowestCommonAncestorofaBinarySearchTree {
+	private static LinkedList<TreeNode> getLinkedList(TreeNode root, TreeNode p) {
+		LinkedList<TreeNode> result = new LinkedList<>();
+		TreeNode runner = root;
+		while (runner != p) {
+			if (runner.val > p.val) {
+				result.add(runner);
+				runner = runner.left;
+			} else if (runner.val < p.val) {
+				result.add(runner);
+				runner = runner.right;
+			}
+		}
+		result.add(p);
+		Iterator<TreeNode> iterator = result.iterator();
+		while (iterator.hasNext()) {
+			System.out.print(iterator.next().val);
+
+		}
+		System.out.println(result);
+
+		return result;
+
+	}
+
+	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+		LinkedList<TreeNode> l1 = getLinkedList(root, p);
+		LinkedList<TreeNode> l2 = getLinkedList(root, q);
+		LinkedList<TreeNode> result = new LinkedList<>();
+		while (!l1.isEmpty() && !l2.isEmpty()) {
+
+			if (l1.getFirst().val == l2.getFirst().val) {
+				result.add(l1.getFirst());
+				l1.removeFirst();
+				l2.removeFirst();
+			} else {
+				break;
+			}
+
+		}
+		System.out.println(result);
+		return result.getLast();
+	}
+
 	public static void main(String[] args) {
 		// TreeNode root = new TreeNode(6);
 		// root.left = new TreeNode(2);
@@ -44,49 +87,6 @@ public class _235_LowestCommonAncestorofaBinarySearchTree {
 		root.right = new TreeNode(3);
 		TreeNode r3 = root.right;
 		lowestCommonAncestor(root, r2, r3);
-
-	}
-
-	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		LinkedList<TreeNode> l1 = getLinkedList(root, p);
-		LinkedList<TreeNode> l2 = getLinkedList(root, q);
-		LinkedList<TreeNode> result = new LinkedList<>();
-		while (!l1.isEmpty() && !l2.isEmpty()) {
-
-			if (l1.getFirst().val == l2.getFirst().val) {
-				result.add(l1.getFirst());
-				l1.removeFirst();
-				l2.removeFirst();
-			} else {
-				break;
-			}
-
-		}
-		System.out.println(result);
-		return result.getLast();
-	}
-
-	private static LinkedList<TreeNode> getLinkedList(TreeNode root, TreeNode p) {
-		LinkedList<TreeNode> result = new LinkedList<>();
-		TreeNode runner = root;
-		while (runner != p) {
-			if (runner.val > p.val) {
-				result.add(runner);
-				runner = runner.left;
-			} else if (runner.val < p.val) {
-				result.add(runner);
-				runner = runner.right;
-			}
-		}
-		result.add(p);
-		Iterator<TreeNode> iterator = result.iterator();
-		while (iterator.hasNext()) {
-			System.out.print(iterator.next().val);
-
-		}
-		System.out.println(result);
-
-		return result;
 
 	}
 }

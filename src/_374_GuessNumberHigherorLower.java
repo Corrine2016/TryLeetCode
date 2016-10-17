@@ -23,8 +23,14 @@ Return 6.*/
  * return 0 int guess(int num);
  */
 public class _374_GuessNumberHigherorLower {
-	public static void main(String[] args) {
-		System.out.println(guessNumber(10));
+	private static int guess(int num) {
+		int answer = 6;
+		if (answer < num)
+			return 1;
+		else if (answer > num)
+			return -1;
+		else
+			return 0;
 
 	}
 
@@ -50,14 +56,8 @@ public class _374_GuessNumberHigherorLower {
 		return -1;
 	}
 
-	private static int guess(int num) {
-		int answer = 6;
-		if (answer < num)
-			return 1;
-		else if (answer > num)
-			return -1;
-		else
-			return 0;
+	public static void main(String[] args) {
+		System.out.println(guessNumber(10));
 
 	}
 

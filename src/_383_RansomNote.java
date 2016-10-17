@@ -15,14 +15,6 @@ canConstruct("aa", "ab") -> false
 canConstruct("aa", "aab") -> true*/
 public class _383_RansomNote {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String ransomNote = "dd";
-		String magazine = "";
-		System.out.println(canConstruct(ransomNote, magazine));
-
-	}
-
 	public static boolean canConstruct(String ransomNote, String magazine) {
 		HashMap<Character, Integer> map1 = getMap(ransomNote);
 		HashMap<Character, Integer> map2 = getMap(magazine);
@@ -47,5 +39,13 @@ public class _383_RansomNote {
 				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
 		}
 		return map;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String ransomNote = "dd";
+		String magazine = "";
+		System.out.println(canConstruct(ransomNote, magazine));
+
 	}
 }

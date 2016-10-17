@@ -11,10 +11,6 @@
  28 -> AB
  */
 public class _168_ExceSheetColumnTitle {
-	public static void main(String[] args) {
-		System.out.println(convertToTitle(26));
-	}
-
 	public static String convertToTitle(int n) {
 		String result = "";
 		while (n != 0) {
@@ -22,6 +18,10 @@ public class _168_ExceSheetColumnTitle {
 			n = (n - 1) / 26;
 		}
 		return result;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(convertToTitle(26));
 	}
 
 }

@@ -10,6 +10,11 @@ Note:
 The vowels does not include the letter "y".*/
 public class _345_ReverseVowelsofaString {
 
+	public boolean isvowel(char c) {
+		return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O'
+				|| c == 'U';
+	}
+
 	public String reverseVowels(String s) {
 		StringBuffer p = new StringBuffer(s);
 		int left = 0;
@@ -32,10 +37,5 @@ public class _345_ReverseVowelsofaString {
 
 		}
 		return p.toString();
-	}
-
-	public boolean isvowel(char c) {
-		return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O'
-				|| c == 'U';
 	}
 }

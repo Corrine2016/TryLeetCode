@@ -35,10 +35,10 @@ class MyStack {
 	private Queue<Integer> q2 = new LinkedList<>();
 	private int top;
 
-	// Push element x onto stack.
-	public void push(int x) {
-		q1.add(x);
-		top = x;
+	// Return whether the stack is empty.
+	public boolean empty() {
+		return q1.isEmpty();
+
 	}
 
 	// Removes the element on top of the stack.
@@ -53,14 +53,14 @@ class MyStack {
 		q2 = temp;
 	}
 
+	// Push element x onto stack.
+	public void push(int x) {
+		q1.add(x);
+		top = x;
+	}
+
 	// Get the top element.
 	public int top() {
 		return top;
-	}
-
-	// Return whether the stack is empty.
-	public boolean empty() {
-		return q1.isEmpty();
-
 	}
 }

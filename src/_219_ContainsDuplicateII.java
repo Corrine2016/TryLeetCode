@@ -6,12 +6,6 @@ import java.util.HashMap;
  */
 
 public class _219_ContainsDuplicateII {
-	public static void main(String[] args) {
-		int[] nums = { -1 };
-		int k = 1;
-		System.out.println(containsNearbyDuplicate(nums, k));
-	}
-
 	public static boolean containsNearbyDuplicate(int[] nums, int k) {
 
 		HashMap<Integer, Integer> map = new HashMap<>();
@@ -22,6 +16,12 @@ public class _219_ContainsDuplicateII {
 				return true;
 		}
 		return false;
+	}
+
+	public static void main(String[] args) {
+		int[] nums = { -1 };
+		int k = 1;
+		System.out.println(containsNearbyDuplicate(nums, k));
 	}
 
 }

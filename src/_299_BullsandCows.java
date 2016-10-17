@@ -24,12 +24,6 @@ should return "1A1B".
 You may assume that the secret number and your friend's guess only contain digits,
 and their lengths are always equal.*/
 public class _299_BullsandCows {
-	public static void main(String[] args) {
-		String secret = "1234";
-		String guess = "0111";
-		System.out.println(getHint(secret, guess));
-	}
-
 	public static String getHint(String secret, String guess) {
 		char[] chars1 = secret.toCharArray();
 		char[] chars2 = guess.toCharArray();
@@ -66,5 +60,11 @@ public class _299_BullsandCows {
 
 		String result = countA + "A" + countB + "B";
 		return result;
+	}
+
+	public static void main(String[] args) {
+		String secret = "1234";
+		String guess = "0111";
+		System.out.println(getHint(secret, guess));
 	}
 }

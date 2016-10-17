@@ -15,21 +15,6 @@ public class _278_FirstBadVersion {
 
 	}
 
-	// given an API bool isBadVersion(version) which will return whether version
-	// is bad.
-	boolean isBadVersion(int version) {
-		return true;
-	}
-
-	//// Time Limit Exceeded
-	// public int firstBadVersion(int n) {
-	// for(int i=1;i<=n;i++){
-	// if(isBadVersion(i))
-	// return i;
-	// }
-	// return 0;
-	// }
-
 	// Binary Search
 	public int firstBadVersion(int n) {
 		int left = 1;
@@ -43,5 +28,20 @@ public class _278_FirstBadVersion {
 			}
 		}
 		return left;
+	}
+
+	//// Time Limit Exceeded
+	// public int firstBadVersion(int n) {
+	// for(int i=1;i<=n;i++){
+	// if(isBadVersion(i))
+	// return i;
+	// }
+	// return 0;
+	// }
+
+	// given an API bool isBadVersion(version) which will return whether version
+	// is bad.
+	boolean isBadVersion(int version) {
+		return true;
 	}
 }

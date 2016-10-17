@@ -27,13 +27,58 @@ public class _155_MinStack {
 }
 
 class MinStack {
+	private class StackElement {
+		public int val;
+		public StackElement next;
+
+		public StackElement(int val) {
+			this.val = val;
+			this.next = null;
+		}
+	}
 	private StackElement top;
+
 	private int minVal;
 
 	/** initialize your data structure here. */
 	public MinStack() {
 		top = null;
 		minVal = Integer.MAX_VALUE;
+	}
+
+	public int getMin() {
+		return minVal;
+	}
+
+	public void plainPop() {
+		if (top == null || top.next == null) {
+			return;
+		}
+		top = top.next;
+	}
+
+	private void plainPush(int x) {
+		if (top == null) {
+			top = new StackElement(x);
+		} else {
+			StackElement newTop = new StackElement(x);
+			newTop.next = top;
+			top = newTop;
+		}
+	}
+
+	public void pop() {
+		// If the next element to pop is the minimum element, we need to
+		// reassign the minimum value to the value of the element right
+		// below the currently popped element, and pop that new min as well
+		// to avoid duplicate.
+		if (top.val == minVal) {
+			this.plainPop(); // Pop the minimum element
+			minVal = this.top(); // Second minimum element value
+			this.plainPop(); // Pop the second minimum element
+		} else {
+			this.plainPop(); // Just pop it. No need to update minimum value.
+		}
 	}
 
 	public void push(int x) {
@@ -54,52 +99,7 @@ class MinStack {
 		this.plainPush(x);
 	}
 
-	public void pop() {
-		// If the next element to pop is the minimum element, we need to
-		// reassign the minimum value to the value of the element right
-		// below the currently popped element, and pop that new min as well
-		// to avoid duplicate.
-		if (top.val == minVal) {
-			this.plainPop(); // Pop the minimum element
-			minVal = this.top(); // Second minimum element value
-			this.plainPop(); // Pop the second minimum element
-		} else {
-			this.plainPop(); // Just pop it. No need to update minimum value.
-		}
-	}
-
 	public int top() {
 		return top.val;
-	}
-
-	public int getMin() {
-		return minVal;
-	}
-
-	private void plainPush(int x) {
-		if (top == null) {
-			top = new StackElement(x);
-		} else {
-			StackElement newTop = new StackElement(x);
-			newTop.next = top;
-			top = newTop;
-		}
-	}
-
-	public void plainPop() {
-		if (top == null || top.next == null) {
-			return;
-		}
-		top = top.next;
-	}
-
-	private class StackElement {
-		public int val;
-		public StackElement next;
-
-		public StackElement(int val) {
-			this.val = val;
-			this.next = null;
-		}
 	}
 }

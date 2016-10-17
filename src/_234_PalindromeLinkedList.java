@@ -5,17 +5,6 @@ import java.util.Stack;
 Follow up:
 Could you do it in O(n) time and O(1) space?*/
 public class _234_PalindromeLinkedList {
-	public static void main(String[] args) {
-		ListNode testList = new ListNode(1);
-		testList.next = new ListNode(2);
-		testList.next.next = new ListNode(3);
-		testList.next.next.next = new ListNode(2);
-		testList.next.next.next.next = new ListNode(1);
-		// ListNode.showListNode(testList);
-		System.out.println(isPalindrome(testList));
-
-	}
-
 	public static boolean isPalindrome(ListNode head) {
 
 		Stack<Integer> stack = new Stack<>();
@@ -33,5 +22,16 @@ public class _234_PalindromeLinkedList {
 		}
 
 		return true;
+	}
+
+	public static void main(String[] args) {
+		ListNode testList = new ListNode(1);
+		testList.next = new ListNode(2);
+		testList.next.next = new ListNode(3);
+		testList.next.next.next = new ListNode(2);
+		testList.next.next.next.next = new ListNode(1);
+		// ListNode.showListNode(testList);
+		System.out.println(isPalindrome(testList));
+
 	}
 }

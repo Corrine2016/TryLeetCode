@@ -14,14 +14,6 @@ import java.util.List;
 // [1,4,6,4,1]
 //]
 public class _118_PascalTriangle {
-	public static void main(String[] args) {
-		int numRows = 5;
-		List<List<Integer>> result = new ArrayList<List<Integer>>();
-		result = generate(numRows);
-		System.out.println(result);
-
-	}
-
 	static List<List<Integer>> result = new ArrayList<List<Integer>>();
 
 	public static List<List<Integer>> generate(int numRows) {
@@ -51,5 +43,13 @@ public class _118_PascalTriangle {
 		}
 
 		return list;
+	}
+
+	public static void main(String[] args) {
+		int numRows = 5;
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
+		result = generate(numRows);
+		System.out.println(result);
+
 	}
 }

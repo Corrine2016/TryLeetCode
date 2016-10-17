@@ -17,12 +17,6 @@ import java.util.List;
 //  [3]
 //]
 public class _107_BinaryTreeLevelOrderTraversalII {
-	public List<List<Integer>> levelOrderBottom(TreeNode root) {
-		LinkedList<List<Integer>> result = new LinkedList<List<Integer>>();
-		addLevel(root, result, 0);
-		return result;
-	}
-
 	private void addLevel(TreeNode node, LinkedList<List<Integer>> result, int level) {
 		if (node == null)
 			return;
@@ -31,5 +25,11 @@ public class _107_BinaryTreeLevelOrderTraversalII {
 		result.get(result.size() - 1 - level).add(node.val);
 		addLevel(node.left, result, level + 1);
 		addLevel(node.right, result, level + 1);
+	}
+
+	public List<List<Integer>> levelOrderBottom(TreeNode root) {
+		LinkedList<List<Integer>> result = new LinkedList<List<Integer>>();
+		addLevel(root, result, 0);
+		return result;
 	}
 }
