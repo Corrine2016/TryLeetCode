@@ -1,4 +1,3 @@
-
 public class TreeNode {
 	int val;
 	TreeNode left;
@@ -7,4 +6,5 @@ public class TreeNode {
 	TreeNode(int x) {
 		val = x;
 	}
+
 }
