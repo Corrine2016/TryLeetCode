@@ -11,6 +11,20 @@ The minimum number of jumps to reach the last index is 2. (Jump 1 step from inde
 
 Note:
 You can assume that you can always reach the last index.*/
+//JumpGame－5５
+//answer
 public class _45_JumpGameII {
-
+	public int jump(int[] A) {
+		int step_count = 0;
+		int last_jump_max = 0;
+		int current_jump_max = 0;
+		for (int i = 0; i < A.length - 1; i++) {
+			current_jump_max = Math.max(current_jump_max, i + A[i]);
+			if (i == last_jump_max) {
+				step_count++;
+				last_jump_max = current_jump_max;
+			}
+		}
+		return step_count;
+	}
 }
