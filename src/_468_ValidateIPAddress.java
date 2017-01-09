@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*In this problem, your job to write a function to check whether a input string is a valid IPv4 address or IPv6 address or neither.
 
 IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, each ranging from 0 to 255, separated by dots ("."), e.g.,172.16.254.1;
@@ -30,10 +32,15 @@ Input: "256.256.256.256"
 Output: "Neither"
 
 Explanation: This is neither a IPv4 address nor a IPv6 address.*/
+
+/**
+ * @author corrine
+ *
+ */
 public class _468_ValidateIPAddress {
 	public static void main(String[] args) {
 		_468_ValidateIPAddress obj = new _468_ValidateIPAddress();
-		System.out.println(obj.validIPAddress("2001:0db8:85a3:0:0:8A2E:0370:7334"));
+		System.out.println(obj.validIPAddress("192.0.0.1"));
 	}
 
 	public String validIPAddress(String IP) {
@@ -50,19 +57,24 @@ public class _468_ValidateIPAddress {
 	}
 
 	private boolean isValidIPv4(String IP) {
+		if (IP.endsWith("."))
+			return false;
 		String[] strings = IP.split("\\.");
+		if (strings.length != 4)
+			return false;
 		for (int i = 0; i < strings.length; i++) {
 			String temp = strings[i];
-			if (temp == "")
+			if (temp.equals("") || temp.length() > 3)
 				return false;
-			if (temp.startsWith("0") && temp != "0")
+			if (temp.startsWith("0") && !temp.equals("0"))
 				return false;
-			int tempInt = 0;
-
-			tempInt = Integer.parseInt(temp);
+			for (int j = 0; j < temp.length(); j++) {
+				if (!Character.isDigit(temp.charAt(j)))
+					return false;
+			}
+			int tempInt = Integer.parseInt(temp);
 			if (tempInt < 0 || tempInt > 255)
 				return false;
-
 		}
 		return true;
 
@@ -70,15 +82,28 @@ public class _468_ValidateIPAddress {
 
 	private boolean isValidIPv6(String IP) {
 
-		String[] strings = IP.split("\\:");
+		String[] strings = IP.split(":");
+		System.out.println(Arrays.toString(strings));
+		if (IP.endsWith(":"))
+			return false;
+		if (strings.length > 8)
+			return false;
+
 		for (int i = 0; i < strings.length; i++) {
 			String temp = strings[i];
-			if (temp == "")
+			if (temp.length() > 4)
+				return false;
+			for (int j = 0; j < temp.length(); j++) {
+				if (!Character.isLetter(temp.charAt(j)) && !Character.isDigit(temp.charAt(j)))
+					return false;
+				if ((temp.charAt(j) > 'F' && temp.charAt(j) < 'a') || (temp.charAt(j) > 'f' && temp.charAt(j) < 'z'))
+					return false;
+			}
+			if (temp.equals(""))
 				return false;
 
 		}
 		return true;
 
 	}
-
 }
