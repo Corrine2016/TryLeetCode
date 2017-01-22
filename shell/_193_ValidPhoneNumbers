@@ -1,0 +1,31 @@
+Given a text file file.txt that contains list of phone numbers (one per line), write a one liner bash script to print all valid phone numbers.
+
+You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit)
+
+You may also assume each line in the text file must not contain leading or trailing white spaces.
+
+For example, assume that file.txt has the following content:
+
+987-123-4567
+123 456 7890
+(123) 456-7890
+Your script should output the following valid phone numbers:
+987-123-4567
+(123) 456-7890
+
+
+grep -e "^[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}$" -e "^([0-9]\{3\}) [0-9]\{3\}-[0-9]\{4\}$" file.txt
+//http://jerkwin.github.io/2014/04/03/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/
+
+两种格式的电话号码，可以使用条件分支：或者（|）。还有一点要注意的就是必须在每个正则表达式的首尾加^和$，不然这样的行也会被选出来的
+egrep -o: output the exact match
+^: match the beginning of line
+([0-9]{3}\-): match exactly 3 digits followed by '-', e.g. xxx-.
+(\([0-9]{3}\) ): match 3 digits between ( and ) followed by a single
+space, e.g. (xxx) .
+(([0-9]{3}\-)|(\([0-9]{3}\) )){1}: combine the two previous matches from point 3 and 4:
+matches or 3 digits followed by '-', e.g. xxx-, or 3 digits between ( and )
+followed by a single space, e.g. (xxx) , exactly {1} time, because the phone number can be in the format (xxx) xxx-xxxx or xxx-xxx-xxxx.
+[0-9]{3}\-: match exactly 3 digits followed by '-'
+[0-9]{4}: match exactly 4 digits
+$: match end of line

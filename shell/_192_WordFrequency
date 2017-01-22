@@ -1,0 +1,32 @@
+Write a bash script to calculate the frequency of each word in a text file words.txt.
+
+For simplicity sake, you may assume:
+
+words.txt contains only lowercase characters and space ' ' characters.
+Each word must consist of lowercase characters only.
+Words are separated by one or more whitespace characters.
+For example, assume that words.txt has the following content:
+
+the day is sunny the the
+the sunny is is
+Your script should output the following, sorted by descending frequency:
+the 4
+is 3
+sunny 2
+day 1
+Note:
+Don't worry about handling ties, it is guaranteed that each word's frequency count is unique.
+
+//answer
+tr -s ' ' '\n' < words.txt|sort|uniq -c|sort -nr|awk '{print $2, $1}'
+
+
+ command 1 | command 2 他的功能是把第一个命令command 1执行的结果作为command 2的输入传给command 2
+ tr -s  --squeeze-repeats：缩减连续重复的字符成指定的单个字符
+ sort将文件的每一行作为一个单位，相互比较，比较原则是从首字符向后，依次按ASCII码值进行比较，最后将他们按升序输出。
+ uniq -c 在输出行前面加上每行在输入文件中出现的次数
+sort的-nr sort默认的排序方式是升序，如果想改成降序，就加个-r就搞定了
+sort的-n选项
+你有没有遇到过10比2小的情况。我反正遇到过。出现这种情况是由于排序程序将这些数字按字符来排序了，排序程序会先比较1和2，显然1小，所以就将10放在2前面喽。这也是sort的一贯作风。
+我们如果想改变这种现状，就要使用-n选项，来告诉sort，“要以数值来排序”！
+AWK是一种处理文本文件的语言，是一个强大的文本分析工具。
