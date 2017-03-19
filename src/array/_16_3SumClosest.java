@@ -1,3 +1,4 @@
+package array;
 import java.util.Arrays;
 
 /*Given an array S of n integers, find three integers in S such that the sum is closest to a given number, 

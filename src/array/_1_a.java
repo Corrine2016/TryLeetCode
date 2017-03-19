@@ -1,74 +1,43 @@
 package array;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
 
 public class _1_a {
 	public static void main(String[] args) {
 		_1_a obj = new _1_a();
-		int[] nums = new int[] { -1, 0, 1, 2, -1, -4 };
-		System.out.println(obj.threeSum(nums));
+		int[] nums = new int[] { 1, 1, 2, 5, 6, 7, 10 };
+		int val = 8;
+		System.out.println(obj.combinationSum2(nums, val));
 	}
 
-	public List<List<Integer>> threeSum(int[] nums) {
+	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		for (int i = 0; i < nums.length; i++) {
-			int target = nums[i];
-			int[] nums2 = new int[nums.length - 1];
-			for (int j = 0; j < nums.length - 1; j++) {
-				if (j == i) {
+		Arrays.sort(candidates);
+		backtrack(res, new ArrayList<Integer>(), candidates, target, target, 0);
+		return res;
 
+	}
+
+	private void backtrack(List<List<Integer>> res, ArrayList<Integer> temp,
+			int[] candidates, int target, int remain, int positon) {
+		if (remain < 0)
+			return;
+		else if (remain == 0)
+			res.add(new ArrayList<Integer>(temp));
+		else {
+			for (int i = positon; i < candidates.length; i++) {
+				if (i > positon && candidates[i] == candidates[i - 1]) {
 					continue;
 				}
-				nums2[j] = nums[j];
-			}
-			// System.out.println(Arrays.toString(nums2));
-			List<List<Integer>> lists = twoSum(nums2, -target);
-			// System.out.println(lists);
-			for (List<Integer> list : lists) {
-				list.add(target);
-			}
-			res.addAll(lists);
-		}
-		System.out.println(res);
-		List<List<Integer>> finalres = new ArrayList<List<Integer>>();
-		for (List<Integer> list : res) {
-			boolean isExist = false;
-			for (List<Integer> finallist : finalres) {
-				if (isEqual(list, finallist))
-					isExist = true;
-			}
-			if (!isExist)
-				finalres.add(list);
-		}
-		return finalres;
-	}
+				temp.add(candidates[i]);
+				backtrack(res, temp, candidates, target,
+						remain - candidates[i], i + 1);
+				temp.remove(temp.size() - 1);
 
-	private boolean isEqual(List<Integer> list, List<Integer> finallist) {
-		HashSet<Integer> set = new HashSet<Integer>();
-		for (Integer i : list)
-			set.add(i);
-		for (Integer i : finallist)
-			set.remove(i);
-		return set.size() == 0 ? true : false;
-	}
-
-	public List<List<Integer>> twoSum(int[] nums, int target) {
-		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < nums.length; i++) {
-			int cur = nums[i];
-			if (map.containsKey(target - cur)) {
-				ArrayList<Integer> list = new ArrayList<Integer>();
-				list.add(cur);
-				list.add(target - cur);
-				res.add(list);
-			} else {
-				map.put(cur, i);
 			}
+
 		}
-		return res;
 	}
 }
