@@ -16,29 +16,36 @@ import java.util.List;
  [7],
  [2, 2, 3]
  ]*/
-public class _39_CombinationSum {
 
+/**
+ * @author Corrine
+ *
+ */
+public class _39_CombinationSum {
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
-		List<List<Integer>> list = new ArrayList<>();
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		Arrays.sort(candidates);
-		backtrack(list, new ArrayList<Integer>(), candidates, target, 0);
-		return list;
+		backtrack(res, new ArrayList<Integer>(), candidates, target, target);
+		return res;
+
 	}
 
-	private void backtrack(List<List<Integer>> list, List<Integer> tempList,
-			int[] cand, int remain, int start) {
+	private void backtrack(List<List<Integer>> res, ArrayList<Integer> temp,
+			int[] candidates, int target, int remain) {
 		if (remain < 0)
 			return;
-		/** no solution */
 		else if (remain == 0)
-			list.add(new ArrayList<>(tempList));
+			res.add(new ArrayList<Integer>(temp));
 		else {
-			for (int i = start; i < cand.length; i++) {
-				tempList.add(cand[i]);
-				backtrack(list, tempList, cand, remain - cand[i], i);
-				tempList.remove(tempList.size() - 1);
+			for (int i = 0; i < candidates.length; i++) {
+				if (temp.size() == 0
+						|| candidates[i] >= temp.get(temp.size() - 1)) {
+					temp.add(candidates[i]);
+					backtrack(res, temp, candidates, target, remain
+							- candidates[i]);
+					temp.remove(temp.size() - 1);
+				}
 			}
 		}
-
 	}
 }

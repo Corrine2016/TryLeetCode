@@ -18,6 +18,11 @@ import java.util.List;
  [2, 6],
  [1, 1, 6]
  ]*/
+
+/**
+ * @author Corrine
+ *
+ */
 public class _40_CombinationSumII {
 	public List<List<Integer>> combinationSum2(int[] candidates, int target) {
 		List<List<Integer>> list = new LinkedList<List<Integer>>();

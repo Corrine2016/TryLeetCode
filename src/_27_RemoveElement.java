@@ -9,6 +9,10 @@
 
  Your function should return length = 2, with the first two elements of nums being 2.*/
 
+/**
+ * @author Corrine
+ *
+ */
 public class _27_RemoveElement {
 	public static void main(String[] args) {
 		int[] nums = { 3, 2, 2, 3, 1, 3 };

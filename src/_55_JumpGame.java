@@ -13,13 +13,14 @@ A = [3,2,1,0,4], return false.*/
 //JumpGame2－４５
 //answer 
 public class _55_JumpGame {
-	public boolean canJump(int[] nums) {
-		int lastPos = nums.length - 1;
-		for (int i = nums.length - 1; i >= 0; i--) {
-			if (i + nums[i] >= lastPos) {
-				lastPos = i;
+	public boolean canJump(int[] A) {
+		int max = 0;
+		for (int i = 0; i < A.length; i++) {
+			if (i > max) {
+				return false;
 			}
+			max = Math.max(A[i] + i, max);
 		}
-		return lastPos == 0;
+		return true;
 	}
 }

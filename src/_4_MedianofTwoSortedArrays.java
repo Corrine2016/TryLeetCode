@@ -1,43 +1,43 @@
+
+
 /*There are two sorted arrays nums1 and nums2 of size m and n respectively.
 
-Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
+ Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).
 
-Example 1:
-nums1 = [1, 3]
-nums2 = [2]
+ Example 1:
+ nums1 = [1, 3]
+ nums2 = [2]
 
-The median is 2.0
-Example 2:
-nums1 = [1, 2]
-nums2 = [3, 4]
+ The median is 2.0
+ Example 2:
+ nums1 = [1, 2]
+ nums2 = [3, 4]
 
-The median is (2 + 3)/2 = 2.5*/
-//http://fisherlei.blogspot.com/2012/12/leetcode-median-of-two-sorted-arrays.html
-//http://blog.csdn.net/yutianzuijin/article/details/11499917
-//https://discuss.leetcode.com/topic/64607/20-line-o-log-k-solution-with-clear-explanation-illustration/2
+ The median is (2 + 3)/2 = 2.5*/
+//https://discuss.leetcode.com/topic/16797/very-concise-o-log-min-m-n-iterative-solution-with-detailed-explanation/2
 public class _4_MedianofTwoSortedArrays {
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-		int totalLength = nums1.length + nums2.length;
-		int k = totalLength / 2;
-		if (totalLength % 2 == 0) {
-			return (findKth(k + 1, nums1, nums2, 0, 0) + findKth(k, nums1, nums2, 0, 0)) / 2.0;
-		} else {
-			return findKth(k + 1, nums1, nums2, 0, 0);
-		}
-	}
+		int N1 = nums1.length, N2 = nums2.length;
+		if (N1 > N2)
+			return findMedianSortedArrays(nums2, nums1);
 
-	public int findKth(int k, int[] nums1, int[] nums2, int s1, int s2) {
-		if (s1 >= nums1.length)
-			return nums2[s2 + k - 1];
-		if (s2 >= nums2.length)
-			return nums1[s1 + k - 1];
-		if (k == 1)
-			return Math.min(nums1[s1], nums2[s2]);
-		int m1 = s1 + k / 2 - 1, m2 = s2 + k / 2 - 1;
-		int mid1 = m1 >= nums1.length ? Integer.MAX_VALUE : nums1[m1];
-		int mid2 = m2 >= nums2.length ? Integer.MAX_VALUE : nums2[m2];
-		if (mid1 > mid2)
-			return findKth(k - k / 2, nums1, nums2, s1, m2 + 1);
-		return findKth(k - k / 2, nums1, nums2, m1 + 1, s2);
+		int lo = 0, hi = 2 * N1;
+		while (lo <= hi) {
+			int C1 = (lo + hi) / 2;
+			int C2 = N1 + N2 - C1;
+
+			double L1 = (C1 == 0) ? Integer.MIN_VALUE : nums1[(C1 - 1) / 2];
+			double R1 = (C1 == 2 * N1) ? Integer.MAX_VALUE : nums1[C1 / 2];
+			double L2 = (C2 == 0) ? Integer.MIN_VALUE : nums2[(C2 - 1) / 2];
+			double R2 = (C2 == 2 * N2) ? Integer.MAX_VALUE : nums2[C2 / 2];
+
+			if (L1 > R2)
+				hi = C1 - 1;
+			else if (L2 > R1)
+				lo = C1 + 1;
+			else
+				return (Math.max(L1, L2) + Math.min(R1, R2)) / 2;
+		}
+		return -1;
 	}
 }
