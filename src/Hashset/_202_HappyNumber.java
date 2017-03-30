@@ -1,3 +1,4 @@
+package Hashset;
 import java.util.HashSet;
 
 //Write an algorithm to determine if a number is "happy".

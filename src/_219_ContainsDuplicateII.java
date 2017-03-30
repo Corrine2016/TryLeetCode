@@ -5,23 +5,25 @@ import java.util.HashMap;
  * in the array such that nums[i] = nums[j] and the difference between i and j is at most k.
  */
 
+/**
+ * @author Corrine
+ *
+ */
 public class _219_ContainsDuplicateII {
-	public static boolean containsNearbyDuplicate(int[] nums, int k) {
-
-		HashMap<Integer, Integer> map = new HashMap<>();
+	public boolean containsNearbyDuplicate(int[] nums, int k) {
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int i = 0; i < nums.length; i++) {
-			Integer value = map.put(nums[i], i);
-
-			if (value != null && i - value <= k)
-				return true;
+			if (!map.keySet().contains(nums[i]))
+				map.put(nums[i], i);
+			else {
+				if (i - map.get(nums[i]) <= k)
+					return true;
+				else {
+					map.put(nums[i], i);
+				}
+			}
 		}
 		return false;
-	}
-
-	public static void main(String[] args) {
-		int[] nums = { -1 };
-		int k = 1;
-		System.out.println(containsNearbyDuplicate(nums, k));
 	}
 
 }

@@ -1,18 +1,16 @@
 package Hashset;
-
 import java.util.HashMap;
 
-public class _1_a {
-	public static void main(String[] args) {
-		_1_a obj = new _1_a();
-		int[] nums = new int[] { 1, 0, 1, 1 };
-		int val = 8;
-		String s = "ab";
-		String t = "aa";
-		System.out.println(obj.containsNearbyDuplicate(nums, 1));
+/*
+ * Given an array of integers and an integer k, find out whether there are two distinct indices i and j 
+ * in the array such that nums[i] = nums[j] and the difference between i and j is at most k.
+ */
 
-	}
-
+/**
+ * @author Corrine
+ *
+ */
+public class _219_ContainsDuplicateII {
 	public boolean containsNearbyDuplicate(int[] nums, int k) {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int i = 0; i < nums.length; i++) {
@@ -28,4 +26,5 @@ public class _1_a {
 		}
 		return false;
 	}
+
 }
