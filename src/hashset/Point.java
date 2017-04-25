@@ -1,4 +1,4 @@
-package Hashset;
+package hashset;
 public class Point {
 	int x;
 	int y;

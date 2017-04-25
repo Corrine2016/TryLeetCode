@@ -1,4 +1,4 @@
-package Hashset;
+package hashset;
 
 public class RandomListNode {
 	int label;

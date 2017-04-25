@@ -1,4 +1,4 @@
-package Hashset;
+package hashset;
 import java.util.HashMap;
 
 //Given two strings s and t, determine if they are isomorphic.

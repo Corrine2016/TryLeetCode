@@ -1,4 +1,4 @@
-package Hashset;
+package hashset;
 import java.util.HashSet;
 
 /*Given a string, find the length of the longest substring without repeating characters.

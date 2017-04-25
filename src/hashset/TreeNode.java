@@ -1,4 +1,4 @@
-package Hashset;
+package hashset;
 public class TreeNode {
 	int val;
 	TreeNode left;
